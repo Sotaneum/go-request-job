@@ -12,5 +12,7 @@ github.com/Sotaneum/go-runner-job v0.0.3-beta h1:+QrkmzrQeCE7YKHSXMhM4PAzK+9tuzu
 github.com/Sotaneum/go-runner-job v0.0.3-beta/go.mod h1:gNRhgjybkGNr1J8xfuM2/l4eVjdL3L40HnDQe6BVcYM=
 github.com/Sotaneum/go-runner-job v0.0.4-beta h1:84Zh2lqSn5zCCRBPCG0VFnwckG3y121Rnscjf9DPIlg=
 github.com/Sotaneum/go-runner-job v0.0.4-beta/go.mod h1:gNRhgjybkGNr1J8xfuM2/l4eVjdL3L40HnDQe6BVcYM=
+github.com/Sotaneum/go-runner-job v0.0.4-beta1 h1:2coHztsW/1owvY2Bs5n4JV74YAKI/mH4n6eAW8fg6ys=
+github.com/Sotaneum/go-runner-job v0.0.4-beta1/go.mod h1:gNRhgjybkGNr1J8xfuM2/l4eVjdL3L40HnDQe6BVcYM=
 github.com/gorhill/cronexpr v0.0.0-20180427100037-88b0669f7d75 h1:f0n1xnMSmBLzVfsMMvriDyA75NB/oBgILX2GcHXIQzY=
 github.com/gorhill/cronexpr v0.0.0-20180427100037-88b0669f7d75/go.mod h1:g2644b03hfBX9Ov0ZBDgXXens4rxSxmqFBbhvKv2yVA=
