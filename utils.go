@@ -2,19 +2,19 @@ package requestjob
 
 import (
 	"encoding/json"
+	"errors"
 	"io/ioutil"
-	"net/http"
-	"time"
 
 	gocreatefolder "github.com/Sotaneum/go-create-folder"
 	file "github.com/Sotaneum/go-json-file"
 	ktime "github.com/Sotaneum/go-kst-time"
-	"github.com/gorhill/cronexpr"
 )
 
-func cronToDateWithoutSecond(cron string, targetTime time.Time) time.Time {
-	return ktime.ToDateByTime(cronexpr.MustParse(cron).Next(targetTime.Add(-1)))
-}
+// ErrorNoAuthorization : 권한이 없는 경우 발생합니다.
+var ErrorNoAuthorization = errors.New("권한이 없습니다")
+
+// ErrorCantCreateJob : 데이터를 처리할 수 없을 때 (생성할 수 없을 떄) 발생합니다.
+var ErrorCantCreateJob = errors.New("데이터를 처리할 수 없습니다")
 
 // NewByFile : File로 부터 Job 객체를 생성합니다.
 func NewByFile(path, name, owner string) (*RequestJob, error) {
@@ -87,36 +87,4 @@ func New() *RequestJob {
 	job := RequestJob{}
 	job.CreateID()
 	return &job
-}
-
-func requestToObject(res *http.Response, err error) *ResponseData {
-	data := ResponseData{}
-
-	if res == nil {
-		data.Code = 500
-		data.Status = "500 Request Error"
-		data.Body = err.Error()
-		return &data
-	}
-
-	header, headerErr := json.Marshal(res.Header)
-
-	if headerErr != nil {
-		data.Header = err.Error()
-	} else {
-		data.Header = string(header)
-	}
-
-	data.Code = res.StatusCode
-	data.Status = res.Status
-
-	body, er := ioutil.ReadAll(res.Body)
-
-	if er != nil {
-		data.Body = er.Error()
-	} else {
-		data.Body = string(body)
-	}
-
-	return &data
 }
